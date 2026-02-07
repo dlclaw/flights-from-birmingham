@@ -1,0 +1,18 @@
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Local development
+node_modules/
+*.log
+.env
+
+# Backup files
+*.bak
+*~

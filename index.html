@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find the best flight deals from Birmingham Airport. Compare prices, book cheap flights to Europe, USA, and worldwide destinations.">
+    <meta name="keywords" content="flights from birmingham, birmingham airport flights, cheap flights birmingham, bhx flights">
+    <title>Flights from Birmingham - Best Deals from Birmingham Airport (BHX)</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Flights from Birmingham - Best Flight Deals">
+    <meta property="og:description" content="Find and compare the best flight deals from Birmingham Airport">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flightsfrombirmingham.co.uk">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <span class="logo-icon">✈️</span>
+                    <span class="logo-text">Flights from Birmingham</span>
+                </a>
+                <nav class="nav">
+                    <a href="#deals" class="nav-link">Deals</a>
+                    <a href="#popular-routes" class="nav-link">Routes</a>
+                    <a href="airport-guide.html" class="nav-link">Airport Guide</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Find Your Perfect Flight from Birmingham</h1>
+                <p class="hero-subtitle">Compare prices from 100+ airlines and travel agencies. Book with confidence.</p>
+                
+                <!-- Search Form -->
+                <div class="search-card">
+                    <form class="search-form" id="searchForm">
+                        <div class="search-grid">
+                            <div class="form-group">
+                                <label for="origin" class="form-label">From</label>
+                                <input type="text" id="origin" class="form-input" value="Birmingham (BHX)" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="destination" class="form-label">To</label>
+                                <input type="text" id="destination" class="form-input" placeholder="Where to?" autocomplete="off">
+                                <div id="destinationSuggestions" class="suggestions"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="departure" class="form-label">Departure</label>
+                                <input type="date" id="departure" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="return" class="form-label">Return</label>
+                                <input type="date" id="return" class="form-input">
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <span>Search Flights</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M9 17L17 9L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Trust Signals -->
+                <div class="trust-signals">
+                    <div class="trust-item">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 1L12.5 6.5L18.5 7.5L14.25 11.5L15.5 17.5L10 14.5L4.5 17.5L5.75 11.5L1.5 7.5L7.5 6.5L10 1Z" fill="currentColor"/>
+                        </svg>
+                        <span>100+ Airlines</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Best Price Guarantee</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 1C10 1 3 4 3 10C3 16 10 19 10 19C10 19 17 16 17 10C17 4 10 1 10 1Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Secure Booking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Routes -->
+    <section id="popular-routes" class="section">
+        <div class="container">
+            <h2 class="section-title">Popular Routes from Birmingham</h2>
+            <p class="section-subtitle">Explore our most searched destinations</p>
+            
+            <div class="routes-grid" id="popularRoutes">
+                <!-- Routes will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Deals -->
+    <section id="deals" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Today's Best Deals</h2>
+            <p class="section-subtitle">Hand-picked offers updated daily</p>
+            
+            <div class="deals-grid" id="dealsGrid">
+                <!-- Deals will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Book with Us?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Best Prices</h3>
+                    <p class="feature-text">We compare 100+ airlines and booking sites to find you the lowest fares from Birmingham Airport.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Fast & Easy</h3>
+                    <p class="feature-text">Search, compare, and book in minutes. No hidden fees, no surprises.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Trusted Partners</h3>
+                    <p class="feature-text">Book directly with leading airlines and trusted travel agencies. Your data is secure.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">150+ Destinations</h3>
+                    <p class="feature-text">Birmingham Airport connects you to Europe, USA, Middle East, and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Flights from Birmingham</h4>
+                    <p class="footer-text">Your trusted source for finding the best flight deals from Birmingham Airport (BHX).</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Popular Routes</h4>
+                    <ul class="footer-links">
+                        <li><a href="routes/amsterdam.html">Birmingham to Amsterdam</a></li>
+                        <li><a href="routes/paris.html">Birmingham to Paris</a></li>
+                        <li><a href="routes/dublin.html">Birmingham to Dublin</a></li>
+                        <li><a href="routes/dubai.html">Birmingham to Dubai</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="airport-guide.html">Airport Guide</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Flights from Birmingham. All rights reserved.</p>
+                <p class="footer-disclaimer">We earn commission from bookings made through our links. This helps us provide free comparison services.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
