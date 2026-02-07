@@ -1,112 +1,94 @@
-// Configuration
+/**
+ * CONFIGURATION
+ * 
+ * This file contains all configuration for the Flights from Birmingham site.
+ * 
+ * SETUP INSTRUCTIONS:
+ * 1. Sign up for a Kiwi.com Tequila API key at: https://tequila.kiwi.com/
+ * 2. Replace 'YOUR_API_KEY_HERE' with your actual API key
+ * 3. (Optional) Set up Unsplash API for destination images
+ * 
+ * IMPORTANT: Never commit real API keys to public repositories!
+ * Use environment variables or GitHub Secrets in production.
+ */
+
 const CONFIG = {
-    // Travelpayouts API Configuration
-    // Get your API credentials at: https://www.travelpayouts.com/
-    travelpayouts: {
-        token: 'YOUR_API_TOKEN_HERE', // Replace with your Travelpayouts API token
-        marker: 'YOUR_MARKER_HERE',   // Replace with your affiliate marker
-        host: 'api.travelpayouts.com'
-    },
-    
-    // Origin airport
-    origin: {
-        code: 'BHX',
-        name: 'Birmingham',
-        city: 'Birmingham'
-    },
-    
-    // Popular destinations from Birmingham
-    popularDestinations: [
-        { code: 'AMS', name: 'Amsterdam', country: 'Netherlands', flag: '🇳🇱', slug: 'amsterdam' },
-        { code: 'DXB', name: 'Dubai', country: 'UAE', flag: '🇦🇪', slug: 'dubai' },
-        { code: 'DUB', name: 'Dublin', country: 'Ireland', flag: '🇮🇪', slug: 'dublin' },
-        { code: 'CDG', name: 'Paris', country: 'France', flag: '🇫🇷', slug: 'paris' },
-        { code: 'BCN', name: 'Barcelona', country: 'Spain', flag: '🇪🇸', slug: 'barcelona' },
-        { code: 'AGP', name: 'Malaga', country: 'Spain', flag: '🇪🇸', slug: 'malaga' },
-        { code: 'FAO', name: 'Faro', country: 'Portugal', flag: '🇵🇹', slug: 'faro' },
-        { code: 'ALC', name: 'Alicante', country: 'Spain', flag: '🇪🇸', slug: 'alicante' },
-        { code: 'TFS', name: 'Tenerife', country: 'Spain', flag: '🇪🇸', slug: 'tenerife' },
-        { code: 'PMI', name: 'Palma', country: 'Spain', flag: '🇪🇸', slug: 'palma' },
-        { code: 'BER', name: 'Berlin', country: 'Germany', flag: '🇩🇪', slug: 'berlin' },
-        { code: 'PRG', name: 'Prague', country: 'Czech Republic', flag: '🇨🇿', slug: 'prague' }
-    ],
-    
-    // Demo data for when API is not configured
-    demoDeals: [
-        {
-            destination: 'Amsterdam',
-            destinationCode: 'AMS',
-            price: 45,
-            currency: '£',
-            dates: 'Mar 15 - Mar 22',
-            airline: 'KLM'
-        },
-        {
-            destination: 'Dublin',
-            destinationCode: 'DUB',
-            price: 32,
-            currency: '£',
-            dates: 'Apr 5 - Apr 12',
-            airline: 'Ryanair'
-        },
-        {
-            destination: 'Barcelona',
-            destinationCode: 'BCN',
-            price: 58,
-            currency: '£',
-            dates: 'May 10 - May 17',
-            airline: 'Vueling'
-        },
-        {
-            destination: 'Dubai',
-            destinationCode: 'DXB',
-            price: 385,
-            currency: '£',
-            dates: 'Jun 1 - Jun 14',
-            airline: 'Emirates'
+    // Kiwi.com Tequila API
+    api: {
+        // Get your API key from: https://tequila.kiwi.com/
+        key: 'YOUR_API_KEY_HERE',
+        baseUrl: 'https://api.tequila.kiwi.com',
+        
+        // Affiliate partner ID (optional - get from Kiwi.com affiliate program)
+        affiliateId: 'flightsfrombirm',
+        
+        // API endpoints
+        endpoints: {
+            search: '/v2/search',
+            locations: '/locations/query'
         }
+    },
+    
+    // Unsplash API for destination images (optional)
+    unsplash: {
+        // Get your API key from: https://unsplash.com/developers
+        accessKey: 'YOUR_UNSPLASH_KEY_HERE',
+        enabled: false // Set to true when you have a key
+    },
+    
+    // Default search parameters
+    defaults: {
+        origin: 'BHX', // Birmingham Airport
+        currency: 'GBP',
+        locale: 'en',
+        
+        // Search parameters
+        maxStopovers: 2,
+        adults: 1,
+        limit: 30,
+        
+        // Date range for flexible searches (days from today)
+        dateFrom: 7,
+        dateTo: 180,
+        
+        // Price cache duration (milliseconds)
+        cacheDuration: 2 * 60 * 60 * 1000 // 2 hours
+    },
+    
+    // Popular destinations for quick access
+    popularDestinations: [
+        { code: 'DUB', city: 'Dublin', country: 'Ireland' },
+        { code: 'AMS', city: 'Amsterdam', country: 'Netherlands' },
+        { code: 'BCN', city: 'Barcelona', country: 'Spain' },
+        { code: 'PMI', city: 'Palma', country: 'Spain' },
+        { code: 'AGP', city: 'Málaga', country: 'Spain' },
+        { code: 'FAO', city: 'Faro', country: 'Portugal' },
+        { code: 'MAD', city: 'Madrid', country: 'Spain' },
+        { code: 'CDG', city: 'Paris', country: 'France' },
+        { code: 'PRG', city: 'Prague', country: 'Czech Republic' },
+        { code: 'BUD', city: 'Budapest', country: 'Hungary' }
     ],
     
-    // Searchable airports (autocomplete)
-    airports: [
-        { code: 'AMS', name: 'Amsterdam', city: 'Amsterdam', country: 'Netherlands' },
-        { code: 'CDG', name: 'Paris Charles de Gaulle', city: 'Paris', country: 'France' },
-        { code: 'DXB', name: 'Dubai International', city: 'Dubai', country: 'UAE' },
-        { code: 'DUB', name: 'Dublin', city: 'Dublin', country: 'Ireland' },
-        { code: 'BCN', name: 'Barcelona', city: 'Barcelona', country: 'Spain' },
-        { code: 'MAD', name: 'Madrid', city: 'Madrid', country: 'Spain' },
-        { code: 'AGP', name: 'Malaga', city: 'Malaga', country: 'Spain' },
-        { code: 'FAO', name: 'Faro', city: 'Faro', country: 'Portugal' },
-        { code: 'ALC', name: 'Alicante', city: 'Alicante', country: 'Spain' },
-        { code: 'PMI', name: 'Palma de Mallorca', city: 'Palma', country: 'Spain' },
-        { code: 'TFS', name: 'Tenerife South', city: 'Tenerife', country: 'Spain' },
-        { code: 'BER', name: 'Berlin Brandenburg', city: 'Berlin', country: 'Germany' },
-        { code: 'MUC', name: 'Munich', city: 'Munich', country: 'Germany' },
-        { code: 'FRA', name: 'Frankfurt', city: 'Frankfurt', country: 'Germany' },
-        { code: 'FCO', name: 'Rome Fiumicino', city: 'Rome', country: 'Italy' },
-        { code: 'VCE', name: 'Venice Marco Polo', city: 'Venice', country: 'Italy' },
-        { code: 'PRG', name: 'Prague', city: 'Prague', country: 'Czech Republic' },
-        { code: 'VIE', name: 'Vienna', city: 'Vienna', country: 'Austria' },
-        { code: 'ZRH', name: 'Zurich', city: 'Zurich', country: 'Switzerland' },
-        { code: 'CPH', name: 'Copenhagen', city: 'Copenhagen', country: 'Denmark' },
-        { code: 'ARN', name: 'Stockholm Arlanda', city: 'Stockholm', country: 'Sweden' },
-        { code: 'OSL', name: 'Oslo', city: 'Oslo', country: 'Norway' },
-        { code: 'HEL', name: 'Helsinki', city: 'Helsinki', country: 'Finland' },
-        { code: 'IST', name: 'Istanbul', city: 'Istanbul', country: 'Turkey' },
-        { code: 'ATH', name: 'Athens', city: 'Athens', country: 'Greece' },
-        { code: 'LIS', name: 'Lisbon', city: 'Lisbon', country: 'Portugal' },
-        { code: 'WAW', name: 'Warsaw', city: 'Warsaw', country: 'Poland' },
-        { code: 'BUD', name: 'Budapest', city: 'Budapest', country: 'Hungary' },
-        { code: 'JFK', name: 'New York JFK', city: 'New York', country: 'USA' },
-        { code: 'LAX', name: 'Los Angeles', city: 'Los Angeles', country: 'USA' },
-        { code: 'ORD', name: 'Chicago O\'Hare', city: 'Chicago', country: 'USA' },
-        { code: 'MIA', name: 'Miami', city: 'Miami', country: 'USA' },
-        { code: 'YYZ', name: 'Toronto Pearson', city: 'Toronto', country: 'Canada' }
-    ]
+    // Deal thresholds for badges
+    deals: {
+        // Price per km to qualify as "Great Deal"
+        greatDealThreshold: 0.05, // £0.05 per km
+        // Price to qualify as "Hot Deal"
+        hotDealThreshold: 50 // Under £50
+    },
+    
+    // Feature flags
+    features: {
+        enableDestinationImages: true,
+        enablePriceCache: true,
+        enableAnalytics: false
+    }
 };
 
-// Check if API is configured
-CONFIG.isConfigured = function() {
-    return this.travelpayouts.token !== 'YOUR_API_TOKEN_HERE' && 
-           this.travelpayouts.token.length > 0;
-};
+// Check if API key is configured
+window.addEventListener('DOMContentLoaded', () => {
+    if (CONFIG.api.key === 'YOUR_API_KEY_HERE') {
+        console.warn('⚠️ API key not configured! Please update js/config.js');
+        console.log('Get your free API key at: https://tequila.kiwi.com/');
+    }
+});

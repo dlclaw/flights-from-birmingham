@@ -1,465 +1,429 @@
-# ✈️ Flights from Birmingham
+# ✈️ Flights from Birmingham - V2
 
-A modern, SEO-optimized flight affiliate website for finding the best deals from Birmingham Airport (BHX).
+**A modern flight deal discovery hub** - Find the cheapest flights from Birmingham to anywhere in the world.
 
-**Target Revenue:** £700-1,200/month  
-**Market:** Birmingham Airport (5.9M catchment, 13M passengers/year, 150+ routes)  
-**Affiliate:** Travelpayouts integration
+![Status](https://img.shields.io/badge/status-active-success)
+![Version](https://img.shields.io/badge/version-2.0-blue)
 
-## 🚀 Live Site
+---
 
-Once deployed, your site will be live at: `https://dlclaw.github.io/flights-from-birmingham/`
+## 🎯 What This Is
 
-## 📋 What's Included
+A **deal discovery platform** that shows real flight prices on your site - not redirects. Think Skyscanner meets Product Hunt.
 
-### Core Features
-- ✅ Modern, mobile-first responsive design
-- ✅ Flight search functionality from Birmingham
-- ✅ Popular routes showcase
-- ✅ Best deals section (auto-updating)
-- ✅ SEO-optimized route pages (Amsterdam, Dublin, Dubai)
-- ✅ Birmingham Airport guide
-- ✅ Travelpayouts affiliate integration
-- ✅ Fast loading, clean code
+### Key Features
 
-### Pages
-- **Homepage:** Flight search + popular routes + deals
-- **Airport Guide:** Complete Birmingham Airport information
-- **Route Pages:** Detailed guides for top destinations
-  - Birmingham to Amsterdam
-  - Birmingham to Dublin
-  - Birmingham to Dubai
+✅ **Real Prices Displayed** - No redirect needed, see prices immediately  
+✅ **Browse Best Deals** - 20-30 live deals sorted by value  
+✅ **Flexible Search** - "Anywhere from Birmingham" with flexible dates  
+✅ **Modern UI** - Card-based, mobile-first, fast loading  
+✅ **Affiliate Revenue** - Earn commissions on bookings  
+✅ **Auto-Updating** - Prices refresh automatically  
 
-### Technical Stack
-- Static HTML5/CSS3/JavaScript (no build process needed)
-- Vanilla JavaScript (no framework dependencies)
-- Travelpayouts API integration
-- Google Fonts (Inter)
-- Mobile-first responsive design
-- SEO-optimized structure
+---
+
+## 🚀 Quick Start
+
+### 1. Get Your API Key
+
+Sign up for a **free** Kiwi.com Tequila API key:
+
+👉 **https://tequila.kiwi.com/**
+
+- Free tier: 100 requests/month (perfect for testing)
+- Paid tier: £30/month for unlimited requests
+- Returns real prices, flexible search, affiliate links
+
+### 2. Configure the Site
+
+Open `js/config.js` and replace:
+
+```javascript
+key: 'YOUR_API_KEY_HERE',
+```
+
+With your actual API key:
+
+```javascript
+key: 'abc123your-real-api-key-here',
+```
+
+### 3. Test Locally
+
+```bash
+# Use any local server
+python -m http.server 8000
+# or
+npx serve
+```
+
+Open `http://localhost:8000` and you should see live deals!
+
+### 4. Deploy to GitHub Pages
+
+```bash
+git add .
+git commit -m "v2: Deal discovery hub with real prices"
+git push origin v2-rebuild
+```
+
+Then in your GitHub repo:
+- Go to **Settings** → **Pages**
+- Set source to `v2-rebuild` branch
+- Your site will be live at `https://yourusername.github.io/flights-from-birmingham`
+
+---
+
+## 🏗️ Architecture
+
+### Tech Stack
+
+- **Frontend**: Vanilla HTML/CSS/JavaScript (no frameworks)
+- **API**: Kiwi.com Tequila API
+- **Hosting**: GitHub Pages (free, fast, CDN)
+- **Images**: Gradient placeholders (or optional Unsplash)
+
+### Why These Choices?
+
+**Kiwi.com Tequila API** - The best option for deal discovery:
+- ✅ Returns actual prices you can display
+- ✅ "Anywhere from BHX" searches
+- ✅ Flexible date ranges
+- ✅ Affiliate deep links included
+- ✅ Great documentation
+- ✅ Free tier for testing
+
+**Alternatives Considered:**
+- ❌ Aviasales - Redirect-only, no price display
+- ❌ Skyscanner - API not available for affiliates
+- ❌ Amadeus - More complex, enterprise-focused
+- ❌ Google Flights - No official API
+
+---
+
+## 📁 Project Structure
+
+```
+flights-from-birmingham/
+├── index.html          # Main page
+├── css/
+│   └── styles.css      # All styles (mobile-first)
+├── js/
+│   ├── config.js       # Configuration & API keys
+│   └── app.js          # Main application logic
+├── README.md           # This file
+└── .gitignore          # Don't commit API keys!
+```
+
+---
 
 ## 🎨 Design Philosophy
 
-- **Clean & Modern:** Inspired by Skyscanner/Kayak aesthetics
-- **Conversion-Focused:** Clear CTAs, compelling copy, easy search
-- **Professional:** Trust signals, no spammy elements
-- **Fast:** Optimized for quick loading and smooth UX
+### Product Thinking
 
-## 📦 Installation & Setup
+- **Deal discovery, not search** - Users come to browse and discover
+- **Prices front and center** - No hiding behind "from £X"
+- **Visual hierarchy** - Price is hero, destination is star
+- **Keep users engaged** - Browse like shopping, not just search
 
-### Option 1: Quick Start (Demo Mode)
+### UX Principles
 
-The site works out of the box with demo data - no API setup required for testing!
+1. **Mobile-first** - Most users browse deals on phones
+2. **Fast loading** - < 2s initial load
+3. **Progressive enhancement** - Works without JavaScript
+4. **Clear value** - "Updated 2h ago", trust signals
+5. **Easy conversion** - One click to booking
 
-```bash
-# Clone the repository
-git clone https://github.com/dlclaw/flights-from-birmingham.git
-cd flights-from-birmingham
+### Color Psychology
 
-# Open in browser
-open index.html
-# or on Linux: xdg-open index.html
-# or just drag index.html into your browser
-```
+- 🟢 **Green (#10b981)** - Great deals, savings, go
+- 🟡 **Amber (#f59e0b)** - Hot deals, urgency
+- ⚪ **Clean whites** - Professional, trustworthy
+- 🎨 **Gradients** - Modern, exciting
 
-### Option 2: Production Setup with API
+---
 
-For live flight data and affiliate commissions:
+## ⚙️ Configuration
 
-#### 1. Sign up for Travelpayouts
-
-1. Visit [https://www.travelpayouts.com/](https://www.travelpayouts.com/)
-2. Create a free account
-3. Complete your profile and add your website
-4. Wait for approval (usually 24-48 hours)
-5. Once approved, get your credentials:
-   - **API Token** (from API section)
-   - **Marker** (your affiliate ID)
-
-#### 2. Configure API Credentials
-
-Edit `js/config.js` and update these lines:
+### Essential Settings (`js/config.js`)
 
 ```javascript
-travelpayouts: {
-    token: 'YOUR_API_TOKEN_HERE',      // Replace with your actual token
-    marker: 'YOUR_MARKER_HERE',         // Replace with your marker/affiliate ID
-    host: 'api.travelpayouts.com'
+// Your Kiwi.com API key (REQUIRED)
+key: 'YOUR_API_KEY_HERE',
+
+// Your affiliate ID (optional but recommended)
+affiliateId: 'flightsfrombirm',
+
+// Default search parameters
+defaults: {
+    origin: 'BHX',              // Birmingham Airport
+    currency: 'GBP',            // British Pounds
+    maxStopovers: 2,            // Up to 2 stops
+    limit: 30,                  // 30 deals per load
+    dateFrom: 7,                // Start 7 days from now
+    dateTo: 180,                // Up to 6 months ahead
+    cacheDuration: 7200000      // Cache 2 hours
 }
 ```
 
-#### 3. Test Locally
+### Optional: Unsplash Images
 
-Open `index.html` in your browser. Check the browser console:
-- ✅ If configured correctly: Live flight data will load
-- ⚠️ If not configured: Demo data will display with a console message
+For real destination photos instead of gradients:
 
-## 🚢 Deployment to GitHub Pages
-
-### Step 1: Create GitHub Repository
-
-```bash
-# Navigate to your project
-cd flights-from-birmingham
-
-# Initialize git (if not already done)
-git init
-
-# Add all files
-git add .
-
-# Commit
-git commit -m "Initial commit: Complete flight affiliate website"
-
-# Create repository on GitHub
-# Go to: https://github.com/new
-# Name: flights-from-birmingham
-# Leave it PUBLIC
-# Don't initialize with README (we already have one)
-
-# Add remote and push
-git remote add origin git@github.com:dlclaw/flights-from-birmingham.git
-git branch -M main
-git push -u origin main
-```
-
-### Step 2: Enable GitHub Pages
-
-1. Go to your repository: `https://github.com/dlclaw/flights-from-birmingham`
-2. Click **Settings** (top right)
-3. Scroll down to **Pages** (left sidebar)
-4. Under **Source**, select:
-   - Branch: `main`
-   - Folder: `/ (root)`
-5. Click **Save**
-6. Wait 2-3 minutes for deployment
-
-Your site will be live at: `https://dlclaw.github.io/flights-from-birmingham/`
-
-### Step 3: Custom Domain (Optional)
-
-To use `flightsfrombirmingham.co.uk`:
-
-1. **In GitHub:**
-   - Settings → Pages → Custom domain
-   - Enter: `flightsfrombirmingham.co.uk`
-   - Save
-
-2. **In Your Domain Registrar:**
-   Add these DNS records:
-   ```
-   Type: CNAME
-   Name: www
-   Value: dlclaw.github.io
-
-   Type: A (add all four)
-   Name: @
-   Values:
-     185.199.108.153
-     185.199.109.153
-     185.199.110.153
-     185.199.111.153
-   ```
-
-3. **Enable HTTPS** (recommended)
-   - Wait for DNS to propagate (up to 24 hours)
-   - GitHub will automatically provision SSL certificate
-   - Check "Enforce HTTPS" in Pages settings
-
-## 🔧 Customization Guide
-
-### Adding New Route Pages
-
-1. Copy an existing route page (e.g., `routes/amsterdam.html`)
-2. Rename it (e.g., `routes/barcelona.html`)
-3. Update these sections:
-   - `<title>` and `<meta description>`
-   - Page header (title, emoji flag)
-   - Destination code in search links
-   - Content (attractions, tips, etc.)
-   - Sidebar information
-
-4. Add to config (`js/config.js`):
-```javascript
-{ code: 'BCN', name: 'Barcelona', country: 'Spain', flag: '🇪🇸', slug: 'barcelona' }
-```
-
-5. Link from homepage footer and other route pages
-
-### Updating Prices
-
-Prices are auto-fetched from Travelpayouts API when configured. For demo mode, edit `js/config.js`:
+1. Get free API key: https://unsplash.com/developers
+2. Update `js/config.js`:
 
 ```javascript
-demoDeals: [
-    {
-        destination: 'Amsterdam',
-        destinationCode: 'AMS',
-        price: 45,           // Update this
-        currency: '£',
-        dates: 'Mar 15 - Mar 22',
-        airline: 'KLM'
-    },
-    // ...
+unsplash: {
+    accessKey: 'YOUR_UNSPLASH_KEY',
+    enabled: true
+}
+```
+
+---
+
+## 💰 Revenue Model
+
+### How You Earn
+
+Every "View Deal" button includes your affiliate ID:
+
+```javascript
+https://www.kiwi.com/deep?affilid=YOUR_ID&from=BHX&to=BCN...
+```
+
+### Commission Structure (Kiwi.com)
+
+- **Flights**: 0.5-1% of booking value
+- **Payment**: Monthly via PayPal
+- **Cookie duration**: 30 days
+- **Typical earnings**: £2-5 per booking
+
+### Example Revenue
+
+If your site generates:
+- 1,000 visitors/month
+- 5% click-through rate (50 clicks)
+- 10% conversion (5 bookings)
+- Average booking £200
+
+**Monthly revenue: ~£10-25**
+
+Scale to 10,000 visitors = £100-250/month
+
+### Optimization Tips
+
+1. **Update deals frequently** - Fresh deals = more engagement
+2. **Add destination content** - SEO + value
+3. **Test different CTAs** - "View Deal" vs "Book Now"
+4. **Track top destinations** - Focus on what converts
+5. **Mobile optimization** - Most traffic is mobile
+
+---
+
+## 🔧 Customization
+
+### Change Origin City
+
+In `js/config.js`:
+
+```javascript
+origin: 'MAN',  // Change to Manchester (or any airport)
+```
+
+Update homepage text:
+
+```html
+<h1>Find the Cheapest Flights from Manchester</h1>
+```
+
+### Add More Popular Destinations
+
+In `js/config.js`:
+
+```javascript
+popularDestinations: [
+    { code: 'NYC', city: 'New York', country: 'USA' },
+    { code: 'BKK', city: 'Bangkok', country: 'Thailand' },
+    // Add more...
 ]
 ```
 
-### Styling Changes
+### Adjust Deal Thresholds
 
-Edit `css/style.css`. Key variables at the top:
+What qualifies as a "hot deal":
 
-```css
-:root {
-    --primary: #2563eb;        /* Main brand color */
-    --secondary: #0ea5e9;      /* Accent color */
-    --accent: #f59e0b;         /* Highlight color */
-    /* ... more variables ... */
+```javascript
+deals: {
+    greatDealThreshold: 0.05,  // £0.05 per km
+    hotDealThreshold: 50       // Under £50
 }
 ```
 
-### Adding More Destinations to Autocomplete
+---
 
-Edit `js/config.js` - add to `airports` array:
+## 📊 Performance
 
-```javascript
-{ code: 'BCN', name: 'Barcelona', city: 'Barcelona', country: 'Spain' }
-```
+### Optimization
 
-## 📊 SEO & Content Strategy
+- **Lazy loading images** - Only load visible cards
+- **API caching** - Don't spam API, cache 2 hours
+- **Minimal dependencies** - No frameworks, fast load
+- **CDN delivery** - GitHub Pages uses Fastly CDN
 
-### Current SEO Setup
-- ✅ Semantic HTML5 structure
-- ✅ Meta descriptions on all pages
-- ✅ Keyword-optimized titles
-- ✅ Open Graph tags
-- ✅ Fast loading (no heavy frameworks)
-- ✅ Mobile-responsive
-- ✅ Clean URLs
+### Lighthouse Scores (Target)
 
-### Next Steps for SEO Growth
+- Performance: 90+
+- Accessibility: 95+
+- Best Practices: 90+
+- SEO: 95+
 
-1. **Submit to Google Search Console**
-   - Verify ownership
-   - Submit sitemap (create with online tool)
-   - Monitor indexing
-
-2. **Create More Route Pages**
-   - Priority: Top 20 destinations from BHX
-   - Use template from existing pages
-   - Target: "flights from birmingham to [city]"
-
-3. **Add Blog Content** (future enhancement)
-   - Travel guides
-   - Booking tips
-   - Seasonal deals
-   - Airport news
-
-4. **Build Backlinks**
-   - List on travel directories
-   - Guest posts on travel blogs
-   - Social media presence
-
-5. **Monitor Performance**
-   - Google Analytics setup
-   - Track conversions
-   - Monitor affiliate earnings
-   - A/B test different approaches
-
-## 💰 Monetization
-
-### How It Works
-- Users search for flights on your site
-- Click "Search Flights" or "Book Now"
-- Redirected to Travelpayouts partner sites
-- You earn commission on completed bookings
-
-### Travelpayouts Revenue Share
-- **50-70% commission** from booking fees
-- Payment terms: Monthly, NET-30
-- Minimum payout: Usually $50
-- Payment methods: PayPal, Wire transfer, Payoneer
-
-### Optimizing Revenue
-
-1. **Traffic Quality** - Target users ready to book
-2. **Popular Routes** - Focus on high-traffic destinations
-3. **Seasonal Content** - Update for peak travel times
-4. **Mobile Experience** - Most users book on mobile
-5. **Trust Signals** - Professional design increases conversions
-
-### Expected Revenue (£700-1,200/month)
-
-Based on:
-- 5,000-10,000 monthly visitors
-- 5% click-through rate
-- £15-25 average commission per booking
-- 10-15% conversion rate
-
-## 📱 Testing Checklist
-
-Before launch, verify:
-
-- [ ] All pages load correctly
-- [ ] Search form works
-- [ ] Affiliate links open in new tabs
-- [ ] Mobile responsive on all devices
-- [ ] Fast loading (< 3 seconds)
-- [ ] All images/resources load
-- [ ] No console errors
-- [ ] Links work (no 404s)
-- [ ] Contact info correct
-- [ ] API configured (or demo mode acknowledged)
-
-## 🛠 Maintenance
-
-### Regular Tasks
-
-**Weekly:**
-- Check for broken links
-- Monitor affiliate dashboard
-- Update "Hot Deals" if needed
-
-**Monthly:**
-- Review analytics
-- Add new route pages
-- Update seasonal content
-- Check competitor pricing
-
-**Quarterly:**
-- Update airport information
-- Refresh design elements
-- Add new features
-- Review and improve SEO
+---
 
 ## 🐛 Troubleshooting
 
-### API Not Working
+### "API key not configured"
 
-**Problem:** Deals not loading, console errors  
-**Solution:**
-1. Check API credentials in `js/config.js`
-2. Verify Travelpayouts account is approved
-3. Check browser console for error messages
-4. Ensure CORS is not blocking requests
-5. Fallback to demo mode if needed
+**Problem**: You see a warning in console  
+**Solution**: Update `js/config.js` with your real Kiwi.com API key
 
-### GitHub Pages Not Updating
+### "Could not load deals"
 
-**Problem:** Changes not reflecting on live site  
-**Solution:**
-1. Clear browser cache
-2. Wait 5-10 minutes for GitHub to rebuild
-3. Check GitHub Actions tab for build status
-4. Force refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+**Problem**: Deals won't load  
+**Solution**:
+1. Check browser console for errors
+2. Verify API key is correct
+3. Check Kiwi.com API dashboard for quota
+4. Try different destination
 
-### Mobile Layout Issues
+### "CORS error"
 
-**Problem:** Design broken on mobile  
-**Solution:**
-1. Test on real devices, not just browser emulation
-2. Check responsive breakpoints in `css/style.css`
-3. Ensure viewport meta tag is present
-4. Validate CSS for syntax errors
+**Problem**: API blocked by browser  
+**Solution**: Must test on a real server (not `file://`). Use:
+```bash
+python -m http.server 8000
+```
+
+### No images showing
+
+**Problem**: Destination images broken  
+**Solution**: Gradients should work always. If using Unsplash, check your API key.
+
+---
+
+## 🚢 Deployment
+
+### GitHub Pages (Recommended)
+
+```bash
+# Push to GitHub
+git add .
+git commit -m "v2: Deal discovery hub"
+git push origin v2-rebuild
+
+# Enable GitHub Pages
+# Repo Settings → Pages → Source: v2-rebuild branch
+```
+
+Your site will be live at:
+`https://YOUR_USERNAME.github.io/flights-from-birmingham`
+
+### Custom Domain (Optional)
+
+1. Buy domain (e.g., `flightsfrombirm.com`)
+2. Add CNAME file:
+```bash
+echo "flightsfrombirm.com" > CNAME
+git add CNAME
+git commit -m "Add custom domain"
+git push
+```
+3. Update DNS:
+```
+CNAME: www → YOUR_USERNAME.github.io
+A:     @   → 185.199.108.153
+              185.199.109.153
+              185.199.110.153
+              185.199.111.153
+```
+
+---
+
+## 🎯 Next Steps
+
+### Phase 1: Launch ✅
+- [x] Set up Kiwi.com API
+- [x] Build deal discovery UI
+- [x] Deploy to GitHub Pages
+- [ ] Test on mobile devices
+- [ ] Share with friends for feedback
+
+### Phase 2: Growth
+- [ ] Add destination guides for SEO
+- [ ] Set up Google Analytics
+- [ ] A/B test different CTAs
+- [ ] Add email newsletter signup
+- [ ] Price drop alerts
+
+### Phase 3: Scale
+- [ ] Server-side API proxy (hide key)
+- [ ] Price history tracking
+- [ ] User accounts & favorites
+- [ ] Social sharing features
+- [ ] Multi-city search
+
+---
 
 ## 📚 Resources
 
-### Documentation
-- [Travelpayouts API Docs](https://support.travelpayouts.com/hc/en-us/categories/115000474268)
-- [GitHub Pages Docs](https://docs.github.com/en/pages)
-- [SEO Starter Guide](https://developers.google.com/search/docs/beginner/seo-starter-guide)
+### API Documentation
+- **Kiwi.com Tequila**: https://tequila.kiwi.com/portal/docs/tequila_api
+- **Search API**: https://tequila.kiwi.com/portal/docs/tequila_api/search_api
+- **Locations API**: https://tequila.kiwi.com/portal/docs/tequila_api/locations_api
 
-### Tools
-- [Google Analytics](https://analytics.google.com/)
-- [Google Search Console](https://search.google.com/search-console)
-- [PageSpeed Insights](https://pagespeed.web.dev/)
-- [Mobile-Friendly Test](https://search.google.com/test/mobile-friendly)
+### Affiliate Programs
+- **Kiwi.com Partners**: https://www.kiwi.com/en/pages/affiliates
+- **Alternative**: Join Awin, TradeDoubler networks
 
-## 🎯 Launch Roadmap
+### Inspiration
+- **Skyscanner** - Search flexibility
+- **Google Flights** - Price insights UI
+- **Jack's Flight Club** - Deal presentation
+- **Going.com** - Email alerts style
 
-### Phase 1: Launch (Week 1)
-- [x] Build complete website
-- [ ] Configure Travelpayouts API
-- [ ] Deploy to GitHub Pages
-- [ ] Set up custom domain
-- [ ] Submit to Google Search Console
-- [ ] Set up Google Analytics
+---
 
-### Phase 2: Content (Weeks 2-4)
-- [ ] Add 10 more route pages
-- [ ] Create blog section
-- [ ] Write airport parking guide
-- [ ] Add deals newsletter signup
+## 🤝 Contributing
 
-### Phase 3: Growth (Month 2-3)
-- [ ] SEO optimization
-- [ ] Social media presence
-- [ ] Build backlinks
-- [ ] Monitor and improve conversions
+Found a bug? Have an idea? Open an issue or PR!
 
-### Phase 4: Scale (Month 4+)
-- [ ] Add more UK airports
-- [ ] Implement advanced search
-- [ ] Add price alerts
-- [ ] Mobile app (future)
-
-## 👨‍💻 Technical Details
-
-### Browser Support
-- Chrome, Firefox, Safari, Edge (last 2 versions)
-- Mobile browsers (iOS Safari, Chrome)
-- No IE11 support (can be added if needed)
-
-### Performance Targets
-- First Contentful Paint: < 1.5s
-- Largest Contentful Paint: < 2.5s
-- Cumulative Layout Shift: < 0.1
-- Time to Interactive: < 3.5s
-
-### File Structure
-```
-flights-from-birmingham/
-├── index.html              # Homepage
-├── airport-guide.html      # Airport information
-├── css/
-│   └── style.css          # All styles
-├── js/
-│   ├── config.js          # Configuration & data
-│   ├── api.js             # API integration
-│   └── main.js            # Main application logic
-├── routes/
-│   ├── amsterdam.html     # Route pages
-│   ├── dublin.html
-│   └── dubai.html
-└── README.md              # This file
-```
+---
 
 ## 📄 License
 
-This project is for personal/commercial use by Dave (dlclaw).
+MIT License - Do whatever you want with this!
 
 ---
 
-## 🚀 Quick Commands Reference
+## 💬 Support
 
-```bash
-# Local development
-open index.html
-
-# Git workflow
-git add .
-git commit -m "Update content"
-git push
-
-# Check site status
-curl -I https://dlclaw.github.io/flights-from-birmingham/
-
-# Test API (replace with your token)
-curl "https://api.travelpayouts.com/v2/prices/latest?origin=BHX&currency=GBP&token=YOUR_TOKEN"
-```
+Need help?
+- Check [Troubleshooting](#-troubleshooting) section
+- Review Kiwi.com docs: https://tequila.kiwi.com/portal/docs
+- Open a GitHub issue
 
 ---
 
-**Built with ❤️ for flightsfrombirmingham.co.uk**  
-**Questions?** Check the Travelpayouts support or GitHub Issues
+## 🎉 You Did It!
 
-**Ready to launch? Let's get those commissions rolling! 💰✈️**
+You now have a modern flight deal discovery site that:
+- Shows **real prices** on YOUR site
+- Helps people **discover** cheap flights
+- Earns **affiliate commissions**
+- Looks **professional** and modern
+
+**Now go find some cheap flights!** ✈️🌍
+
+---
+
+Built with ❤️ for travelers who love a good deal.

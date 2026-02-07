@@ -1,18 +1,36 @@
-# MacOS
-.DS_Store
+# Environment variables (API keys)
+.env
+.env.local
+.env.production
 
-# Windows
+# Node modules (if you add build tools later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
 Thumbs.db
 
-# Editor directories
+# Editor files
 .vscode/
 .idea/
-
-# Local development
-node_modules/
-*.log
-.env
-
-# Backup files
-*.bak
+*.swp
+*.swo
 *~
+
+# Build output (if you add build step)
+dist/
+build/
+
+# Cache
+.cache/
+.temp/
+
+# Logs
+logs/
+*.log
+
+# Don't commit API keys in config
+# js/config.js  # Uncomment if you want to force env vars instead
