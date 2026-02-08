@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dlclaw.github.io/flights-from-birmingham/sitemap.xml
